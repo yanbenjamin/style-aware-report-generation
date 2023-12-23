@@ -4,7 +4,7 @@ Code used in the paper "Style-Aware Radiology Report Generation with RadGraph an
 
 Details for using each module are located within the respective directories's `README.md`, along with any additional setup information.
 
-### Environment Setup and Infrastructure
+# Environment Setup and Infrastructure
 To install the Python dependencies, create an environment with Python 3.7 (e.g. Conda env with `conda create -n new_env python=3.7` and `conda activate new_env`) and run
 
 ```zsh
