@@ -125,8 +125,6 @@ def section_end(tokens, section_start_idx, header_name = "FINDINGS"):
             if (ending_idx - 1 != section_start_idx + len(header_name.split(" "))):
                 return ending_idx
                    
-            #return (token_ix - 1) + section_content_start
-    
     return len(tokens)
 
 def locate_findings_impression(report_text):
