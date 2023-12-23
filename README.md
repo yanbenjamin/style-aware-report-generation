@@ -4,7 +4,7 @@ Code used in the paper "Style-Aware Radiology Report Generation with RadGraph an
 
 Details for using each module are located within the respective directories's `README.md`, along with any additional setup information.
 
-# Environment Setup and Infrastructure
+## Environment Setup and Infrastructure
 To install the Python dependencies, create an environment with Python 3.7 (e.g. Conda env with `conda create -n new_env python=3.7` and `conda activate new_env`) and run
 
 ```zsh
@@ -21,7 +21,7 @@ to ensure CUDA compatibility with the torch version (check the <a href = "https:
 
 On the infrastructure side, make sure to have an Azure OpenAI account, and a cloud-based deployed `gpt-3.5-turbo` model. For deployment details as well as pricing, see <a href = "https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal">here</a> and <a href = "https://learn.microsoft.com/en-us/azure/cognitive-services/openai/quickstart?tabs=command-line&pivots=programming-language-python">here</a>. From the deployment, you will need the API key, base / endpoint value, and deployment name, which are described in the latter link.
 
-# Citing 
+## Citing 
 
 If you are employing this repo, kindly cite this paper:
 
