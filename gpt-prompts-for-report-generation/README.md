@@ -34,7 +34,7 @@ On the infrastructure side, make sure to have an Azure OpenAI account, and a clo
 ### Report Generation 
 We provide a command line interface for batching the report generation. To use the interface, follow these steps. 
 
-First, make sure the environment is setup as described above. Then, run the `main.py` script, passing in your Azure OpenAI {API key, base / endpoint value, deployment name}, the input CSV file (with `serialization` and `id` columns for the predicted text serialization and MIMIC-CXR ID, respectively), a prompt stem string (which is appended at the beginning of each serialization to form the GPT prompt). You want to specify a cache directory (e.g., `./cache`; use `mkdir` if needed) to intermediately store generated reports, enclosed in separate `.txt` files. 
+First, make sure the environment is setup as described above. Then, run the `main.py` script, passing in your Azure OpenAI {API key, base / endpoint value, deployment name}, the input CSV file (with `serialization` and `id` columns for the evaluation serializations and MIMIC-CXR ID, respectively), a prompt stem string (which is appended at the beginning of each serialization to form the GPT prompt). You want to specify a cache directory (e.g., `./cache`; use `mkdir` if needed) to intermediately store generated reports, enclosed in separate `.txt` files. 
 
 ```zsh
 python main.py --API_KEY <API Key> --DEPLOYMENT_NAME <Azure deployment name> --BASE <Azure base / endpoint> --input_csv mimic-cxr-test.csv --icl_csv mimic-cxr-icl.csv --num_icl_examples 1 --cache_dir cache --prompt_stem "Generate a chest x-ray report from the following key words:\n" --max_global_iter 10
