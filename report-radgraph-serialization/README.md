@@ -1,14 +1,8 @@
 # Report Radgraph Serialization
 ![Diagram of the serialization process for RadGraphs.](serialization_diagram.png)
 
-## Setup
+## Preparation
 To download the relevant JSON files, see the dataset <a href = "https://physionet.org/content/radgraph/1.0.0/">here</a>, which mandates being a credentialed `physionet.org` user. To create RadGraphs for custom reports, also refer to the dataset link, which encapsulates details for running the named entity recognition (NER) and relation extraction (RE) model on report files. 
-
-To obtain the requisite packages, run the following command:
-
-```zsh
-pip install networkx
-```
 
 ## Usage
 We provide command line interface for generating serialized graph reports (i.e. a text representation of each radiology knowledge graph) for a JSON file. To use the command line interface, run the `main.py` script—passing in the path to the input JSON file, an output CSV file path, a serialization method (see the table below; `subgraphs` is the method used in the paper). As a template,

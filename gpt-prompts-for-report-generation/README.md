@@ -1,7 +1,6 @@
 # GPT Prompts for Report Generation
 
 ### Preparation 
-
 To get public submodules (`CXR-Report-Metric`) essential to this study, in this directory run 
 
 ```zsh
@@ -14,27 +13,10 @@ Then, migrate the following script to the `CXR-Report-Metric` submodule.
 mv calc_metrics.py CXR-Report-Metric/
 ```
 
-### Environment Setup and Infrastructure
-To install the Python dependencies, create an environment with Python 3.7 (e.g. Conda env with `conda create -n new_env python=3.7` and `conda activate new_env`) and run
-
-```zsh
-pip install -r requirements.txt
-```
-
-As a note, if you are using newer GPUs with the NVIDIA sm_86 microarchitecture (e.g. Amperes), excise the installation of __torch==1.6.0__ from `requirements.txt`. Instead, run 
-
-```zsh
-pip install torch==1.10.0+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
-```
-
-to ensure CUDA compatibility with the torch version (check the <a href = "https://pytorch.org/">PyTorch website </a> for more information on CUDA and NVIDIA GPU compatibilities). 
-
-On the infrastructure side, make sure to have an Azure OpenAI account, and a cloud-based deployed `gpt-3.5-turbo` model. For deployment details as well as pricing, see <a href = "https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal">here</a> and <a href = "https://learn.microsoft.com/en-us/azure/cognitive-services/openai/quickstart?tabs=command-line&pivots=programming-language-python">here</a>. From the deployment, you will need the API key, base / endpoint value, and deployment name, which are described in the latter link.
-
 ### Report Generation 
 We provide a command line interface for batching the report generation. To use the interface, follow these steps. 
 
-First, make sure the environment is setup as described above. Then, run the `main.py` script, passing in your Azure OpenAI {API key, base / endpoint value, deployment name}, the input CSV file (with `serialization` and `id` columns for the evaluation serializations and MIMIC-CXR ID, respectively), a prompt stem string (which is appended at the beginning of each serialization to form the GPT prompt). You want to specify a cache directory (e.g., `./cache`; use `mkdir` if needed) to intermediately store generated reports, enclosed in separate `.txt` files. 
+First, make sure the environment is setup properly i.e. with requisite Python libraries installed, a cloud-based deployment of GPT-3.5 on Azure OpenAI, the submodule above added. Then, run the `main.py` script, passing in your Azure OpenAI {API key, base / endpoint value, deployment name}, the input CSV file (with `serialization` and `id` columns for the evaluation serializations and MIMIC-CXR ID, respectively), a prompt stem string (which is appended at the beginning of each serialization to form the GPT prompt). You want to specify a cache directory (e.g., `./cache`; use `mkdir` if needed) to intermediately store generated reports, enclosed in separate `.txt` files. 
 
 ```zsh
 python main.py --API_KEY <API Key> --DEPLOYMENT_NAME <Azure deployment name> --BASE <Azure base / endpoint> --input_csv mimic-cxr-test.csv --icl_csv mimic-cxr-icl.csv --num_icl_examples 1 --cache_dir cache --prompt_stem "Generate a chest x-ray report from the following key words:\n" --max_global_iter 10
